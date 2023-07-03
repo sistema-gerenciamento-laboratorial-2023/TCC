@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
+    <title>Saída de produtos</title>
+</head>
+<body>
+        <div id="form">
+            <form action="controleProdutoSaida.php" method="post">
+                <h1 class="title" >Saída de produtos</h1>
+                <label for="cas">Código de saída</label>
+                <div class ="input">
+                    <input id="txtSaida" name="txtSaida" placeholder="Código de saída" type="text">
+                </div>
+                <label for="cas">Código CAS</label>
+                <div class ="input">
+                    <input id="txtCas" name="txtCas" placeholder="Código CAS" type="text">
+                </div>
+                <label for="quantidade">Quantidade</label>
+                <div class ="input">
+                    <input id="txtQuantidade" name="txtQuantidade" placeholder="Quantidade" type="text">
+                </div>
+                <label for="unidade">Unidade de medida</label>
+                <div class ="input">
+                    <input id="txtUnidade" name="txtUnidade" placeholder="Unidade de medida" type="text">
+                </div>
+                <div id = "btn">
+                    <button type="submit">Enviar</button>
+                </div>  
+            </form>
+        </div>
+</body>
+</html>

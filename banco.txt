@@ -1,0 +1,106 @@
+create database controleLaboratorial;
+use controleLaboratorial;
+
+#Tabela pai->Reagentes (onde vai ficar armazenado qual e o tipo de substancia)
+create table reagentes(
+	codigo char(1) primary key not null, 
+	descricao varchar(50) not null
+);
+
+#Tabela para registro de professores
+create table professores(
+	registro int primary key not null,
+	nome varchar(45) not null,
+	telefone varchar(14) not null,
+	email varchar(45) not null,
+    senha varchar(15) not null
+);
+
+#Tabela referente a unidade de medida utilizada do produto
+create table unidade_medida( 
+	codigo_unidade varchar(10) primary key not null,
+	descricao_unidade varchar(50) not null
+);
+
+#Tabela para cadastro de produtos e suas caracteristicas
+create table produtos(
+	cas varchar(25) primary key not null,
+	onu varchar(50) not null,
+	nome_produto varchar(50) not null,
+	sinonimo varchar(50) not null,
+	formula varchar(50) not null,
+	caracteristicas varchar(50) not null,
+	perigo_fogo varchar(1000) not null,
+	perigo_explosao varchar(1000) not null,
+	reacoes_perigosas_incompatibilidade varchar(1000) not null,
+	danos_ao_ambiente varchar (100) not null,
+	armazenagem varchar (100) not null,
+	manuseio varchar (100) not null,
+	derrame_acidental varchar (100) not null,
+	descarte varchar (100) not null,
+	rotulagem varchar (100) not null,
+	informacoes_adicionais  varchar (100) not null,
+	estoque_minimo varchar (100) not null,
+	estoque_atual varchar (100) not null,
+	estoque_maximo varchar (100) not null,
+	codigo_reagente char(1) not null,
+    #chave-estrangeira que recebera o codigo do reagente
+	foreign key (codigo_reagente ) references reagentes(codigo )
+);
+
+#Tabela para cadastro de fornecedor
+create table fornecedor(
+	cod_fornecedor int primary key not null,
+	nome varchar(45) not null,
+	telefone varchar(14) not null,
+	email varchar(45) not null,
+    senha varchar(15) not null
+);
+
+#Tabela para cadastro da nota fiscal
+create table entrada_NF(
+	num_entrada int primary key not null,
+	nota_fiscal int not null,
+	data_entrada date not null,
+	id_fornecedor int not null,
+	foreign key (id_fornecedor) references fornecedor (cod_fornecedor)
+);
+
+
+
+#Tabela referente a entrada dos produtos que foram comprados com suas unidades quantidades
+create table produtos_entrada(
+	num_entrada int not null,
+	cas varchar (25)  not null,
+	quantidade float not null,
+	unidade_medida varchar (15) not null,
+	data_validade date not null,
+	primary key (num_entrada,cas),
+	foreign key (cas) references produtos(cas),
+	foreign key (unidade_medida) references unidade_medida(codigo_unidade),
+    foreign key (num_entrada) references entrada_NF(num_entrada)
+);
+
+#tabela referente a quem fez a saída
+create table saida(
+	num_saida int  not null,
+	data_saida date not null,
+	registro int not null, 
+	hora_saida time not null,
+	primary key(num_saida, registro),
+	foreign key (registro) references professores(registro)
+);
+
+#Tabela referente a saida dos produtos que foram utilizados
+create table produtos_saida(
+	num_saida int not null,
+	cas varchar (25) not null,
+	quantidade float not null,	
+	unidade varchar (15) not null,
+    
+	primary key (num_saida,cas),
+    
+	foreign key (cas) references produtos(cas),
+    foreign key (num_saida) references saida(num_saida),
+    foreign key (unidade) references unidade_medida(codigo_unidade)
+);

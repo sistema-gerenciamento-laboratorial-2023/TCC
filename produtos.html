@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script>
+    <title>Cadastro de produtos</title>
+   
+</head>
+<body>
+    <div id="form">
+        <form action="controleProdutos.php" method="post">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th colspan="3">Cadastro de produtos</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><label for="produto">Nome do Produto</label></td>
+                    <td><label for="codCas">Código CAS</label></td>
+                </tr>
+                <tr>
+                    <td><div class ="input">
+                        <input id="txtProduto" name="txtProduto" placeholder="Nome do produto" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <i class="fa-sharp fa-light fa-circle-user" aria-hidden="true"></i>
+                        <input id="txtCas" name="txtCas" placeholder="Código CAS" type="text">
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label for="sinonimo">Sinônimo do produto</label></td>
+                    <td><label for="codOnu">Código ONU</label></td>     
+                    <td><label for="formula">Fórmula do produto</label></td>               
+                </tr>
+                <tr>
+                    <td><div class ="input">
+                        <input id="txtSinonimo" name="txtSinonimo" placeholder="Sinônimo do produto" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtOnu" name="txtOnu" placeholder="Código ONU" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtFormula" name="txtFormula" placeholder="Fórmula do produto" type="text">
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label for="caracteristicas">Características</label></td>
+                    <td><label for="fogo">Perigo de fogo</label></td>
+                    <td><label for="explosao">Perigo de explosão</label></td>
+                </tr>
+                <tr>
+                    <td><div class ="input">
+                        <input id="txtCaracteristica" name="txtCaracteristica" placeholder="Características" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtFogo" name="txtFogo" placeholder="Perigo de fogo" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtExplosao" name="txtExplosao" placeholder="Perigo de explosão" type="text">
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label for="reacoesIncompativeis">Reações perigosas de incompatibilidade</label></td>
+                    <td><label for="danos">Danos ao meio ambiente</label></td>
+                    <td><label for="derrame">Derrame acidental</label></td>
+                </tr>
+                <tr>
+                    <td><div class ="input">
+                        <input id="txtIncompativel" name="txtIncompativel" placeholder="Reações perigosas de incompatibilidade" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtDanos" name="txtDanos" placeholder="Danos ao meio ambiente" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtDerrame" name="txtDerrame" placeholder="Derrame acidental" type="text">
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label for="armazenagem">Armazenagem</label></td>
+                    <td><label for="manuseio">Manuseio</label></td>
+                    <td><label for="descarte">Descarte</label></td>
+                </tr>
+                <tr>
+                    <td><div class ="input">
+                        <input id="txtArmazenagem" name="txtArmazenagem" placeholder="Armazenagem" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtManuseio" name="txtManuseio" placeholder="Manuseio" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtDescarte" name="txtDescarte" placeholder="Descarte" type="text">
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label for="rotulagem">Rotulagem</label></td>
+                    <td><label for="informacoes">Informações adicionais</label></td>
+                    <td><label for="codigo reagente">Código do reagente</label></td>
+                </tr>
+                <tr>
+                    <td><div class ="input">
+                        <input id="txtRotulagem" name="txtRotulagem" placeholder="Rotulagem" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtInformacoes" name="txtInformacoes" placeholder="Informações adicionais" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtReagente" name="txtReagente" placeholder="Código do reagente" type="text">
+                    </div></td>
+                </tr>
+                <tr>
+                    <td><label for="estoque minimo">Estoque mínimo</label></td>
+                    <td><label for="estoque atual">Estoque atual</label></td>
+                    <td><label for="estoque maximo">Estoque máximo</label></td>
+                </tr>
+                <tr>
+                    <td><div class ="input">
+                        <input id="txtEminimo" name="txtEminimo" placeholder="Estoque mínimo" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtEatual" name="txtEatual" placeholder="Estoque atual" type="text">
+                    </div></td>
+                    <td><div class ="input">
+                        <input id="txtEmaximo" name="txtEmaximo" placeholder="Estoque máximo" type="text">
+                    </div></td>
+                    
+                </tr>
+                <th colspan="3"><div id = "btn" align="center">
+                    <button type="submit">Cadastrar</button>
+                </div></th>
+                
+            </table>
+        
+        </form>
+    </div>
+    
+</body>
+</html>
